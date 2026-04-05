@@ -1,4 +1,4 @@
-// maps OpenWeatherMap icon codes to basmilius weather icon names
+// maps OpenWeatherMap icon codes to basmilius animated SVG URLs
 const iconMap = {
     '01d': 'clear-day',
     '01n': 'clear-night',
@@ -20,7 +20,10 @@ const iconMap = {
     '50n': 'mist',
 }
 
-// returns the basmilius icon name for a given OpenWeatherMap icon code
+const BASE = 'https://cdn.jsdelivr.net/gh/basmilius/weather-icons@2.0.0/production/fill/all'
+
+// returns full icon URL for a given OpenWeatherMap icon code
 export function getWeatherIcon(iconCode) {
-    return iconMap[iconCode] || 'not-available'
+    const name = iconMap[iconCode] || 'not-available'
+    return `${BASE}/${name}.svg`
 }
